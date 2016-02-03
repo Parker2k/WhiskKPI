@@ -17,7 +17,7 @@ class WhiskKpi(object):
         request_url = '/'.join([self.ENDPOINT] + methods) + '?' + self.unicode_urlencode(params)
         request = urllib.request.Request(request_url)
         # Add whisk admin session below
-        request.add_header("WhiskAdminSessionId", "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx")
+        request.add_header("SessionId", "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx")
         request = urllib.request.urlopen(request)
         data = request.read().decode('utf-8')
         return json.loads(data)
